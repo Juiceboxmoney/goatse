@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Goat Mode</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    /* BACKGROUND IMAGE */
+    background-image: url("background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* TITLE */
+h1 {
+    color: white;
+    font-size: 38px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px black;
+}
+
+/* BOXES */
+.info-box {
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    color: white;
+    backdrop-filter: blur(8px);
+}
+
+.info-box h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #cccccc;
+    letter-spacing: 2px;
+}
+
+/* CONTRACT ADDRESS */
+.contract {
+    font-size: 14px;
+    word-break: break-all;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* COPY BUTTON */
+button {
+    padding: 10px 22px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #cccccc;
+}
+
+/* METADATA */
+.metadata {
+    font-size: 15px;
+    line-height: 2;
+}
+
+.metadata a {
+    color: white;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 29px;
+    }
+
+    .info-box {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- EDIT YOUR COIN NAME HERE -->
+    <h1>Goat Mode</h1>
+
+    <!-- CONTRACT ADDRESS BOX -->
+    <div class="info-box">
+
+        <h2>CONTRACT ADDRESS</h2>
+
+        <!-- EDIT YOUR CONTRACT ADDRESS HERE -->
+        <p class="contract" id="contract">
+            3TGUgXuxv92JZmEVXoZE9WJHNy7MMtjdbH11kX6Spump
+        </p>
+
+        <button onclick="copyAddress()">
+            COPY ADDRESS
+        </button>
+
+    </div>
+
+    <!-- METADATA BOX -->
+    <div class="info-box">
+
+        <h2>METADATA</h2>
+
+        <div class="metadata">
+
+            <!-- EDIT YOUR INFORMATION HERE -->
+
+            <p>Website: goatchan.xyz</p>
+
+            <p>Network: Solana</p>
+
+            <p>Symbol: GM</p>
+
+            <p>Description: https://coinmarketcap.com/community/profile/GoatseusMaximus
+  x.com/goatmode2027</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function copyAddress() {
+
+    const address = document.getElementById("contract").innerText.trim();
+
+    navigator.clipboard.writeText(address).then(() => {
+        alert("Contract address copied!");
+    }).catch(() => {
+        alert("Unable to copy address.");
+    });
+
+}
+</script>
+
+</body>
+</html>
